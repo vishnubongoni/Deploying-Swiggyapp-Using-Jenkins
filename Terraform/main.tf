@@ -1,5 +1,6 @@
  data "aws_subnet" "project_subnet" {
-    id = "subnet-0e4df40e74e75d6e5"
+    id = "	
+subnet-07560ddbc15e722af"
   }
 resource "aws_security_group" "project_sg" {
   name        = "project_sg"
@@ -34,10 +35,9 @@ resource "aws_security_group" "project_sg" {
 }
 
 resource "aws_instance" "project_instance" {
-  ami           = "ami-0ecb62995f68bb549" # Amazon Linux 2 AMI (HVM), SSD Volume Type
-  instance_type = "t2.large"
+  ami           = "ami-0f5fcdfbd140e4ab7" 
 
-  key_name               = "first"
+  key_name               = "sample"
   subnet_id              = data.aws_subnet.project_subnet.id
   vpc_security_group_ids = [aws_security_group.project_sg.id]
   user_data              = templatefile("./resource.sh", {})
